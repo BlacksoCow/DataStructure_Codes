@@ -21,12 +21,16 @@ void fast_transpose(term a[], term b[])
         for(int i = 1; i <= num_terms; i++)
             row_terms[a[i].col]++; // Initialize row_terms
     }
-    starting_pos[0] = 1;
+    row_terms[num_cols - 1] = 1 + num_terms - row_terms[num_cols - 1];
+    for(int i = num_cols - 1; i >= 0; i--)
+        row_terms[i - 1] = row_terms[i] - row_terms[i - 1];
+
+    /*starting_pos[0] = 1;
     for(int i = 1; i <= num_cols; i++) // Initialize starting_pos
-        starting_pos[i] = starting_pos[i - 1] + row_terms[i - 1];
+        starting_pos[i] = starting_pos[i - 1] + row_terms[i - 1]; */
     for(int i = 1; i <= num_terms; i++)
     {
-        j = starting_pos[a[i].col]++; // j = index of b to be implemented
+        j = row_terms[a[i].col]++; // j = index of b to be implemented
         b[j].row = a[i].col;
         b[j].col = a[i].row;
         b[j].value = a[i].value;
