@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #define MAX_SIZE 100
 int failure[MAX_SIZE + 1];
