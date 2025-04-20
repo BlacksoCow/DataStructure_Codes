@@ -33,7 +33,7 @@
       {
         "label": "delete",
         "command": "del",
-        "args": ["${fileDirname}\\${fileBasenameNoExtension}"],
+        "args": ["${fileDirname}\\${fileBasenameNoExtension}.exe"],
         "dependsOn": ["execute"]
       }
     ]
