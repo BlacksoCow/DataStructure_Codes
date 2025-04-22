@@ -22,7 +22,7 @@ void fast_transpose(term a[], term b[])
             row_terms[a[i].col]++; // Initialize row_terms
     }
     row_terms[num_cols - 1] = 1 + num_terms - row_terms[num_cols - 1];
-    for(int i = num_cols - 1; i >= 0; i--)
+    for(int i = num_cols - 1; i > 0; i--)
         row_terms[i - 1] = row_terms[i] - row_terms[i - 1];
 
     /*starting_pos[0] = 1;
