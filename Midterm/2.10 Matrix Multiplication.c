@@ -29,7 +29,7 @@ void fast_transpose(term a[], term b[])
             row_terms[a[i].col]++; // Initialize row_terms
     }
     row_terms[num_cols - 1] = 1 + num_terms - row_terms[num_cols - 1];
-    for(int i = num_cols - 1; i >= 0; i--) // Using only one extra array
+    for(int i = num_cols - 1; i > 0; i--) // Using only one extra array
         row_terms[i - 1] = row_terms[i] - row_terms[i - 1];
     for(int i = 1; i <= num_terms; i++)
     {
