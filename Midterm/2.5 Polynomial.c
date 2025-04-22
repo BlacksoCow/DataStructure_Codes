@@ -42,7 +42,6 @@ void padd(int starta, int finisha, int startb, int finishb, int* startd, int* fi
                 break;
             case 0: // a's exp == b's exp
                 coefficient = terms[starta].coef + terms[startb].coef;
-                printf("work? coef: %d\n", coefficient);
                 if(coefficient != 0)
                     attach(coefficient, terms[starta].exp);
                 starta++, startb++;
