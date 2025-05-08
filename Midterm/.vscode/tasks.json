@@ -10,7 +10,7 @@
     "tasks": [
       {
         "label": "compile",
-        "command": "g++",
+        "command": "gcc",
         "args": ["${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
         "problemMatcher": {
           "fileLocation": ["relative", "${workspaceRoot}"],
