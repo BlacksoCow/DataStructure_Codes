@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "runner": "terminal",
+  "type": "shell",
+  "echoCommand": false,
+  "presentation": {
+    "reveal": "always",
+    "panel": "shared"
+  },
+  "tasks": [
+    {
+      "label": "compile",
+      "command": "gcc",
+      "args": ["${file}", "-o", "${fileDirname}/${fileBasenameNoExtension}"],
+      "problemMatcher": {
+        "fileLocation": ["relative", "${workspaceRoot}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    },
+    {
+      "label": "execute",
+      "command": "cmd",
+      "args": ["/C", "${fileDirname}\\${fileBasenameNoExtension}"],
+      "dependsOn": ["compile"]
+    },
+    {
+      "label": "delete",
+      "command": "del",
+      "args": ["${fileDirname}\\${fileBasenameNoExtension}.exe"],
+      "dependsOn": ["execute"]
+    }
+  ]
+}
